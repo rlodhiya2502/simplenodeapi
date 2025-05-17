@@ -20,7 +20,7 @@ let items = [];
 let currentId = 1;
 
 // CREATE item
-app.post('/api/items', (req, res) => {
+app.post('/items', (req, res) => {
     const { name, description } = req.body;
     const newItem = { id: currentId++, name, description };
     items.push(newItem);
@@ -28,12 +28,12 @@ app.post('/api/items', (req, res) => {
 });
 
 // READ all items
-app.get('/api/items', (req, res) => {
+app.get('/items', (req, res) => {
     res.json(items);
 });
 
 // READ one item by ID
-app.get('/api/items/:id', (req, res) => {
+app.get('/items/:id', (req, res) => {
     const id = parseInt(req.params.id);
     const item = items.find(i => i.id === id);
     if (!item) return res.status(404).json({ error: 'Item not found' });
@@ -41,7 +41,7 @@ app.get('/api/items/:id', (req, res) => {
 });
 
 // UPDATE item
-app.put('/api/items/:id', (req, res) => {
+app.put('/items/:id', (req, res) => {
     const id = parseInt(req.params.id);
     const { name, description } = req.body;
     const item = items.find(i => i.id === id);
@@ -53,7 +53,7 @@ app.put('/api/items/:id', (req, res) => {
 });
 
 // DELETE item
-app.delete('/api/items/:id', (req, res) => {
+app.delete('/items/:id', (req, res) => {
     const id = parseInt(req.params.id);
     const index = items.findIndex(i => i.id === id);
     if (index === -1) return res.status(404).json({ error: 'Item not found' });
@@ -66,3 +66,9 @@ app.delete('/api/items/:id', (req, res) => {
 app.listen(PORT, () => {
     console.log(`In-memory CRUD API running at http://localhost:${PORT}`);
 });
+
+// Health check endpoint
+app.get('/health', (req, res) => {
+    res.json({ status: 'OK' });
+});
+
