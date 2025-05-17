@@ -1,0 +1,36 @@
+# TODO List
+
+- Set up project structure for the todo API
+- Initialize a Node.js project (npm init)
+- Install necessary dependencies (e.g., express, body-parser)
+- Create an Express server
+- Define routes for:
+  - Creating a todo item
+  - Retrieving all todo items
+  - Updating a todo item
+  - Deleting a todo item
+- Implement in-memory storage for todos (or connect to a database)
+- Add input validation for todo items
+- Test all API endpoints
+- Add error handling and proper status codes
+- Write documentation for API usage
+
+Track Active Sessions
+
+Create a server-side mechanism to track anonymous sessions:
+
+    When a user connects, generate a unique session ID.
+
+    Store that ID in your database along with:
+
+        IP address
+
+        User agent
+
+        Timestamp
+
+        Location (if needed)
+
+Example table:
+Session ID IP Address User Agent Last Active Status
+abc123 1.2.3.4 Chrome 10:00 AM Active
