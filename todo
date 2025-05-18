@@ -16,21 +16,13 @@
 - Write documentation for API usage
 
 Track Active Sessions
-
 Create a server-side mechanism to track anonymous sessions:
 
-    When a user connects, generate a unique session ID.
-
-    Store that ID in your database along with:
-
-        IP address
-
+When a user connects, generate a unique session ID.
+   Store that ID in your database along with:
+       IP address
         User agent
-
         Timestamp
-
         Location (if needed)
 
-Example table:
-Session ID IP Address User Agent Last Active Status
-abc123 1.2.3.4 Chrome 10:00 AM Active
+TODO: Check if Session is already exists and its a unique and only one session for the user exists. 
